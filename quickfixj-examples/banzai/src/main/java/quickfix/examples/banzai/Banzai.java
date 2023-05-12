@@ -74,7 +74,7 @@ public class Banzai {
         OrderTableModel orderTableModel = new OrderTableModel();
         ExecutionTableModel executionTableModel = new ExecutionTableModel();
         BanzaiApplication application = new BanzaiApplication(orderTableModel, executionTableModel);
-        MessageStoreFactory messageStoreFactory = new FileStoreFactory(settings);
+        MessageStoreFactory messageStoreFactory = new LoggingMessageStoreFactory(new FileStoreFactory(settings));
         LogFactory logFactory = new ScreenLogFactory(true, true, true, logHeartbeats);
         MessageFactory messageFactory = new DefaultMessageFactory();
 
